@@ -12,4 +12,8 @@
     <PackageReference Include="Script.Image" Version="1.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+
 </Project>
