@@ -2,9 +2,9 @@
 using OpenCvSharp;
 using ScriptImage;
 
-public class main
+public class Project
 {
-    public static void Main()
+    public static void main()
     {
         //handle the Window
         var handle = WindowInfo.handleProcessName("LegendsOfIdleon");

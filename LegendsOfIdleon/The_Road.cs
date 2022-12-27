@@ -3,7 +3,7 @@
 namespace LegendsOfIdleon
 {
     //This class is for moving the player to the specific location
-    internal class The_Road
+    internal class TheRoad
     {
         //This method is for moving the player to the specific location
         public static void MoveToNextMap(IntPtr handle, (int x, int y) Location)
