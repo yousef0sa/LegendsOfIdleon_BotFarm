@@ -1,2 +1,23 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using LegendsOfIdleon;
+using OpenCvSharp;
+using ScriptImage;
+
+public class main
+{
+    public static void Main()
+    {
+        //handle the Window
+        var handle = WindowInfo.handleProcessName("LegendsOfIdleon");
+        if (handle == IntPtr.Zero)
+        {
+            Console.WriteLine("Window Not Found");
+            return;
+        }
+
+        //set Window position
+        WindowInfo.SetWindowPos(handle, 0, 0, 563, 942);
+
+        //Bring Window To Top
+         WindowInfo.BringWindowToTop(handle);
+    }
+}
