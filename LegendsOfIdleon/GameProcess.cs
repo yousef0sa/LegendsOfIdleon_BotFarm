@@ -1,6 +1,4 @@
-﻿
-
-using OpenCvSharp;
+﻿using OpenCvSharp;
 using ScriptImage;
 
 namespace LegendsOfIdleon
