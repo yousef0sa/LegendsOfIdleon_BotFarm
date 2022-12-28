@@ -71,17 +71,16 @@ namespace LegendsOfIdleon
         }
 
         //check if this map is correct map
-        public static bool Map_checker(IntPtr handle, string ImgMap, string MapName = "")
+        public static bool Map_checker(IntPtr handle, string ImgMap)
         {
             using (var mainWIndow = WindowInfo.Capture(handle))
             {
-                var img = ImgProcess.MatchTemplateInRange(mainWIndow,
+                var img = ImgProcess.MatchTemplate(mainWIndow,
                     @ImgMap,
-                    (141, 38), (374, 60), 0.90);
+                     0.90);
 
                 if (img.GetListRects.Count > 0)
                 {
-                    Console.WriteLine("I'm in the " + MapName + " Location");
                     img.Dispose();
                     return true;
                 }

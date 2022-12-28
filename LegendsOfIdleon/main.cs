@@ -1,11 +1,15 @@
 ﻿using LegendsOfIdleon;
-using OpenCvSharp;
 using ScriptImage;
 
-public class main
+public class Project
 {
+
     public static void Main()
     {
+
+        string nameOfLocation = "";
+
+
         //handle the Window
         var handle = WindowInfo.handleProcessName("LegendsOfIdleon");
         if (handle == IntPtr.Zero)
@@ -18,6 +22,10 @@ public class main
         WindowInfo.SetWindowPos(handle, 0, 0, 563, 942);
 
         //Bring Window To Top
-         WindowInfo.BringWindowToTop(handle);
+        WindowInfo.BringWindowToTop(handle);
+
+        //where am i.
+        nameOfLocation = StaticLocations.WhereAmI(handle);
+
     }
 }
