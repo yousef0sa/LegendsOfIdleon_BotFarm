@@ -14,12 +14,12 @@ namespace LegendsOfIdleon
                 using (var mainWIndow = WindowInfo.Capture(handle))
                 {
                     var img = ImgProcess.MatchTemplateInRange(mainWIndow,
-                        @"Images\Prosses\Loading.png",
+                        @"Images\Process\Loading.png",
                         (125, 492), (170, 557), 0.99);
 
                     if (img.GetListRects.Count == 0)
                     {
-                        Console.WriteLine("Loading");
+                        Console.WriteLine("Loading...");
                         img.Dispose();
                         break;
                     }
