@@ -11,6 +11,8 @@ namespace LegendsOfIdleon
 
         //static things to do with the game.
         public readonly static (int x, int y) Map_Button = (764, 524);
+        public readonly static (int x, int y) Bag_Button = (570, 527);
+
         public readonly static (int x, int y) Shop = (492, 411);
         public readonly static (int x, int y) Sell_Area = (516, 138);
         public readonly static (int x, int y) Gold_Static = (432, 378);

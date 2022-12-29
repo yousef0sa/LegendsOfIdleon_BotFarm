@@ -21,9 +21,7 @@ namespace LegendsOfIdleon
             while (true)
             {
                 //Wait for the shop to open
-                if (GameProcess.Window_Checker(handle,
-                    @"Images\Process\Shop_List.png",
-                    "Shop List", 0.50))
+                if (GameProcess.Window_Checker(handle,@"Images\Process\Shop_List.png", 0.50))
                 {
                     break;
                 }

@@ -88,7 +88,7 @@ namespace LegendsOfIdleon
         }
 
         //This method will check any image in the window.
-        public static bool Window_Checker(IntPtr handle, string ImgPah, string ImgName = "", double threshold = 0.90)
+        public static bool Window_Checker(IntPtr handle, string ImgPah, double threshold = 0.90)
         {
             using (var mainWIndow = WindowInfo.Capture(handle))
             {
@@ -97,16 +97,38 @@ namespace LegendsOfIdleon
 
                 if (img.GetListRects.Count > 0)
                 {
-                    Console.WriteLine("I see the " + ImgName + " item");
                     img.Dispose();
                     return true;
                 }
                 img.Dispose();
             }
             return false;
+        }
 
+        //checking the bag space.
+        public static bool BagSpace(IntPtr handle, string ImgPah, double threshold = 0.90, int ItemSpace = 9)
+        {
+            //open the Bag.
+            Mouse.Left_Click(handle, StaticLocations.Bag_Button);
+            DelayTime.Delay(0.8);
 
+            using (var mainWIndow = WindowInfo.Capture(handle))
+            {
+                var img = ImgProcess.MatchTemplate(mainWIndow,
+                    ImgPah, threshold, mainImgColor: ColorConversionCodes.RGBA2RGB, subImgColor: ColorConversionCodes.RGBA2RGB);
 
+                if (img.GetListRects.Count >= ItemSpace)
+                {
+                    Mouse.Left_Click(handle, StaticLocations.Bag_Button);
+                    DelayTime.Delay(0.5);
+                    img.Dispose();
+                    return true;
+                }
+                img.Dispose();
+            }
+            Mouse.Left_Click(handle, StaticLocations.Bag_Button);
+            DelayTime.Delay(0.5);
+            return false;
         }
     }
 }
