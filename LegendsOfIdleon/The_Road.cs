@@ -18,11 +18,14 @@ namespace LegendsOfIdleon
             DelayTime.Delay(0.5);
         }
 
-
         //method for move the player to the specific location step by step
         public static bool MoveFromTo(IntPtr handle, string From, string To)
         {
-            if (From == "G1" || To == "M2")
+            if (From == To)
+            {
+                return true;
+            }
+            else if (From == "G1" && To == "M2")
             {
                 //Step 1 move from G1 to M1
                 MoveToNextMap(handle, StaticLocations.GetDoor(From, "M1"));
@@ -31,7 +34,7 @@ namespace LegendsOfIdleon
                 MoveToNextMap(handle, StaticLocations.GetDoor("M1", To));
                 return true;
             }
-            else if (From == "M2" || To == "G1")
+            else if (From == "M2" && To == "G1")
             {
                 //step 1 move from M2 to M1
                 MoveToNextMap(handle, StaticLocations.GetDoor(From, "M1"));
@@ -40,17 +43,11 @@ namespace LegendsOfIdleon
                 MoveToNextMap(handle, StaticLocations.GetDoor("M1", To));
                 return true;
             }
-            else if (From == To)
-                return true;
             else
             {
                 MoveToNextMap(handle, StaticLocations.GetDoor(From, To));
                 return true;
             }
-
-
         }
     }
-
-
 }

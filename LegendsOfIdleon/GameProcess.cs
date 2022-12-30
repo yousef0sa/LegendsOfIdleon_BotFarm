@@ -29,7 +29,7 @@ namespace LegendsOfIdleon
         }
 
         //return true if the Inventory is Full. ((6, 422), (167, 495) 0.60);
-        public static bool FullInventoryIntPtr(IntPtr handle)
+        public static bool FullInventoryText(IntPtr handle)
         {
             using (var mainWIndow = WindowInfo.Capture(handle))
             {
@@ -106,11 +106,11 @@ namespace LegendsOfIdleon
         }
 
         //checking the bag space.
-        public static bool BagSpace(IntPtr handle, string ImgPah, double threshold = 0.90, int ItemSpace = 9)
+        public static bool BagSpace(IntPtr handle, string ImgPah, double threshold = 0.80, int ItemSpace = 9)
         {
             //open the Bag.
             Mouse.Left_Click(handle, StaticLocations.Bag_Button);
-            DelayTime.Delay(0.8);
+            DelayTime.Delay(1);
 
             using (var mainWIndow = WindowInfo.Capture(handle))
             {

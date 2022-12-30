@@ -6,10 +6,37 @@ namespace LegendsOfIdleon
     internal class Selling
     {
         //This method is for selling all the items in the inventory
-        public static void SellAll(IntPtr handle, string ImgPath)
+        public static bool SellAll(IntPtr handle, string ImgPath, double threshold = 0.85)
         {
-            //Drag and Drop.
+            //check if the items in the bag
+            var items = GameProcess.Window_Checker(handle, ImgPath, threshold);
+            if (items)
+            {
+                while (true)
+                {
+                    using (var mainWIndow = WindowInfo.Capture(handle))
+                    {
+                        var img = ImgProcess.MatchTemplate(mainWIndow, ImgPath, threshold);
+
+                        if (img.GetCenterListPoint.Count > 0)
+                        {
+                            Console.WriteLine(img.GetCenterPoint);
+                            Mouse.Left_Click(handle, img.GetCenterPoint, 0.1);
+                        }
+                        else
+                        {
+                            img.Dispose();
+                            return true;
+                        }
+                        img.Dispose();
+                    }
+                }
+            }
+            else
+                return false;
         }
+
+
 
         //Open the shop.
         public static bool OpenShop(IntPtr handle)
@@ -21,12 +48,34 @@ namespace LegendsOfIdleon
             while (true)
             {
                 //Wait for the shop to open
-                if (GameProcess.Window_Checker(handle,@"Images\Process\Shop_List.png", 0.50))
+                if (GameProcess.Window_Checker(handle, @"Images\Process\Shop_List.png", 0.50))
                 {
-                    break;
+                    if (QuickSell(handle))
+                    {
+                        Console.WriteLine("Quick Sell Mode is on");
+                        break;
+                    }
                 }
             }
             return true;
         }
+
+        //Check if the shop is in quick sell mode.
+        private static bool QuickSell(IntPtr handle)
+        {
+            //Check if the shop is in quick sell mode.
+            if (GameProcess.Window_Checker(handle, @"Images\Process\Quick_Sell.png", 0.90))
+            {
+                return true;
+            }
+            else
+            {
+                //Click the quick sell button.
+                Mouse.Left_Click(handle, StaticLocations.Quick_Sell_Button);
+                DelayTime.Delay(0.5);
+                return true;
+            }
+        }
     }
 }
+

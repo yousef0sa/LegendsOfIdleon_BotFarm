@@ -6,12 +6,12 @@ namespace LegendsOfIdleon
     public class StaticLocations
     {
         //Info List of Locations
-        public static List<(string name, (int x, int y) Lift, (int x, int y)Right)> L1 = new List<(string, (int, int), (int, int))>();
-
+        private static List<(string name, (int x, int y) Lift, (int x, int y) Right)> L1 = new List<(string, (int, int), (int, int))>();
 
         //static things to do with the game.
         public readonly static (int x, int y) Map_Button = (764, 524);
         public readonly static (int x, int y) Bag_Button = (570, 527);
+        public readonly static (int x, int y) Quick_Sell_Button = (300, 473);
 
         public readonly static (int x, int y) Shop = (492, 411);
         public readonly static (int x, int y) Sell_Area = (516, 138);
@@ -22,7 +22,6 @@ namespace LegendsOfIdleon
         public readonly static (int x, int y) M1_To_G1 = (913, 418);
         public readonly static (int x, int y) M1_To_M2 = (29, 417);
         public readonly static (int x, int y) M2_To_M1 = (912, 58);
-
 
 
         //return the location of the door by using the name of the location from the map.
@@ -75,6 +74,5 @@ namespace LegendsOfIdleon
                 return "Unknown";
             }
         }
-
     }
 }
