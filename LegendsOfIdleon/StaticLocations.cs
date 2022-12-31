@@ -18,7 +18,7 @@ namespace LegendsOfIdleon
         public readonly static (int x, int y) Gold_Static = (432, 378);
 
         //static door locations
-        public readonly static (int x, int y) G1_To_M1 = (22, 304);
+        public readonly static (int x, int y) G1_To_M1 = (23, 303);
         public readonly static (int x, int y) M1_To_G1 = (913, 418);
         public readonly static (int x, int y) M1_To_M2 = (29, 417);
         public readonly static (int x, int y) M2_To_M1 = (912, 58);

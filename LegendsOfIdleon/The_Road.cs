@@ -8,6 +8,7 @@ namespace LegendsOfIdleon
         //This method is for moving the player to the specific location
         private static void MoveToNextMap(IntPtr handle, (int x, int y) Location)
         {
+            DelayTime.Delay(0.5);
             //Move to the location
             Mouse.Left_Click(handle, Location);
 

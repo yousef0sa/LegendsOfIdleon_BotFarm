@@ -130,5 +130,21 @@ namespace LegendsOfIdleon
             DelayTime.Delay(0.5);
             return false;
         }
+
+        //auto loot
+        public static void AutoLoot (IntPtr handle)
+        {
+            using (var mainWIndow = WindowInfo.Capture(handle))
+            {
+                var img = ImgProcess.MatchTemplate(mainWIndow,
+                    @"Images\Items\Gold_Ore.png", 0.80);
+
+                if (img.GetListRects.Count > 0)
+                {
+                    Mouse.Left_Click(handle, img.GetCenterPoint);
+                }
+                img.Dispose();
+            }
+        }
     }
 }

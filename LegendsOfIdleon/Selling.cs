@@ -20,7 +20,6 @@ namespace LegendsOfIdleon
 
                         if (img.GetCenterListPoint.Count > 0)
                         {
-                            Console.WriteLine(img.GetCenterPoint);
                             Mouse.Left_Click(handle, img.GetCenterPoint, 0.1);
                         }
                         else
