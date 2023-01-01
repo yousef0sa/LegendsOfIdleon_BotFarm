@@ -10,7 +10,7 @@ namespace LegendsOfIdleon
         {
             DelayTime.Delay(0.5);
             //Move to the location
-            Mouse.Left_Click(handle, Location);
+            Mouse.Left_Click(handle, Location, 0.1);
 
             // Wait for the loading screen to appear
             GameProcess.Lodaing(handle);
@@ -28,8 +28,16 @@ namespace LegendsOfIdleon
             }
             else if (From == "G1" && To == "M2")
             {
+                var G1_Door = GameProcess.Door_Left(handle);
                 //Step 1 move from G1 to M1
-                MoveToNextMap(handle, StaticLocations.GetDoor(From, "M1"));
+                if (G1_Door != (0, 0))
+                {
+                    MoveToNextMap(handle, G1_Door);
+                }
+                else
+                {
+                    MoveToNextMap(handle, StaticLocations.GetDoor(From, "M1"));
+                }
 
                 //Step 2 move from M1 to M2
                 MoveToNextMap(handle, StaticLocations.GetDoor("M1", To));

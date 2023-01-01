@@ -49,8 +49,10 @@ namespace LegendsOfIdleon
         }
 
         //check if door is right. ((799, 35), (932, 557), 0.56, 5, ColorConversionCodes.BGRA2BGR, ColorConversionCodes.BGRA2BGR);
-        public static bool Door_Right(IntPtr handle)
+        public static (int x, int y) Door_Right(IntPtr handle)
         {
+            (int x, int y) doorLocation = (0, 0);
+
             using (var mainWIndow = WindowInfo.Capture(handle))
             {
                 var img = ImgProcess.MatchTemplateInRange(mainWIndow,
@@ -59,13 +61,35 @@ namespace LegendsOfIdleon
 
                 if (img.GetListRects.Count > 0)
                 {
-                    Console.WriteLine("the Door is Right");
+                    doorLocation = img.GetCenterPoint;
                     img.Dispose();
-                    return true;
+                    return doorLocation;
                 }
                 img.Dispose();
             }
-            return false;
+            return doorLocation;
+        }
+
+        //check if door is left. ((0, 0), (133, 557), 0.56, 5, ColorConversionCodes.BGRA2BGR, ColorConversionCodes.BGRA2BGR);
+        public static (int x, int y) Door_Left(IntPtr handle)
+        {
+            (int x, int y) doorLocation = (0, 0);
+
+            using (var mainWIndow = WindowInfo.Capture(handle))
+            {
+                var img = ImgProcess.MatchTemplateInRange(mainWIndow,
+                    @"Images\Doors\Door_Left.png",
+                    (0, 0), (133, 557), 0.56, 5, ColorConversionCodes.BGRA2BGR, ColorConversionCodes.BGRA2BGR);
+
+                if (img.GetListRects.Count > 0)
+                {
+                    doorLocation = img.GetCenterPoint;
+                    img.Dispose();
+                    return doorLocation;
+                }
+                img.Dispose();
+            }
+            return doorLocation;
         }
 
         //check if this map is correct map

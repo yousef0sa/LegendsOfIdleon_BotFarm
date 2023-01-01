@@ -52,25 +52,25 @@ namespace LegendsOfIdleon
             if (GameProcess.Map_checker(handle, @"Images\Lications\Blunder_Hills.png"))
             {
                 DelayTime.Delay(0.5);
-                Mouse.Left_Click(handle, Map_Button);
+                Mouse.Left_Click(handle, Map_Button, 0.1);
                 return "G1";
             }
             else if (GameProcess.Map_checker(handle, @"Images\Lications\Tunnels_Entrance.png"))
             {
                 DelayTime.Delay(0.5);
-                Mouse.Left_Click(handle, Map_Button);
+                Mouse.Left_Click(handle, Map_Button, 0.1);
                 return "M1";
             }
             else if (GameProcess.Map_checker(handle, @"Images\Lications\Freefall_Caverns.png"))
             {
                 DelayTime.Delay(0.5);
-                Mouse.Left_Click(handle, Map_Button);
+                Mouse.Left_Click(handle, Map_Button, 0.1);
                 return "M2";
             }
             else
             {
                 DelayTime.Delay(0.5);
-                Mouse.Left_Click(handle, Map_Button);
+                Mouse.Left_Click(handle, Map_Button, 0.1);
                 return "Unknown";
             }
         }
