@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Script.Image" Version="1.0.1-Debug-AnyCPU-14440602-112153" />
+    <PackageReference Include="Script.Image" Version="1.0.1.1" />
   </ItemGroup>
 
 </Project>
