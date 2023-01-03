@@ -7,8 +7,10 @@ namespace LegendsOfIdleon
     internal class GameProcess
     {
         //Calling this method will start an infinite loop and end if the loading screen is shown
-        public static void Lodaing(IntPtr handle)
+        public static bool Lodaing(IntPtr handle)
         {
+            //start the timer
+            var startTimer = DelayTime.TimerStart();
             while (true)
             {
                 using (var mainWIndow = WindowInfo.Capture(handle))
@@ -21,7 +23,13 @@ namespace LegendsOfIdleon
                     {
                         Console.WriteLine("Loading...");
                         img.Dispose();
-                        break;
+                        return true;
+                    }
+                    else if (DelayTime.TimerStop(startTimer) > 30) //time out after 30s
+                    {
+                        Console.WriteLine("Loading Time Out");
+                        img.Dispose();
+                        return false;
                     }
                     img.Dispose();
                 }

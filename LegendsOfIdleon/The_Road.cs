@@ -12,9 +12,20 @@ namespace LegendsOfIdleon
             //Move to the location
             Mouse.Left_Click(handle, Location, 0.1);
 
-            // Wait for the loading screen to appear
-            GameProcess.Lodaing(handle);
-
+            while (true)
+            {
+                // Wait for the loading screen to appear
+                //if return false, try again.
+                if (!GameProcess.Lodaing(handle))
+                {
+                    //Move to the location again
+                    Mouse.Left_Click(handle, Location, 0.1);
+                }
+                else
+                {
+                    break;
+                }
+            }
             // Wait for the loading screen to disappear
             DelayTime.Delay(0.5);
         }

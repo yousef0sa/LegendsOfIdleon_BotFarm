@@ -43,6 +43,9 @@ namespace LegendsOfIdleon
             //Open the shop
             Mouse.Left_Click(handle, StaticLocations.Shop);
 
+            //Wait for the shop to open
+            var startTimer = DelayTime.TimerStart();
+
             //infinite loop.
             while (true)
             {
@@ -54,6 +57,17 @@ namespace LegendsOfIdleon
                         Console.WriteLine("Quick Sell Mode is on");
                         break;
                     }
+                }
+                else if (DelayTime.TimerStop(startTimer) > 10)
+                {
+                    //Open the shop try again
+                    Mouse.Left_Click(handle, StaticLocations.Shop);
+
+                    //reset the timer
+                    startTimer = DelayTime.TimerStart();
+
+                    Console.WriteLine("Shop is not open");
+                    Console.WriteLine("Try again");
                 }
             }
             return true;
