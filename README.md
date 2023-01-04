@@ -14,7 +14,7 @@ And all that work in the background.
 ## What the bot can do
 It's only can work with gold ore, the jobs can do is:
 - auto sell
-![](https://github.com/yousef0sa/LegendsOfIdleon_BotFarm/blob/README/README/AutoSell.gif?raw=true)
+![](https://github.com/yousef0sa/LegendsOfIdleon_BotFarm/blob/master/README/AutoSell.gif?raw=true)
 - auto loot
-![](https://github.com/yousef0sa/LegendsOfIdleon_BotFarm/blob/README/README/AutoLoot.gif?raw=true)
+![](https://github.com/yousef0sa/LegendsOfIdleon_BotFarm/blob/master/README/AutoLoot.gif?raw=true)
 - auto move
